@@ -1,36 +1,24 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>all-cars</title>
+    <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
 </head>
 <body>
-<nav>
-    <div>
-        <br><br>
-        <H2 th:align="center" th:text="#{index.nav.all}"></H2>
-        <br>
-    </div>
-</nav>
-<table class="table-responsive-xl table-striped table-bordered" th:cellpadding="15" th:align="center">
+<table class="table-responsive-xl table-striped table-bordered " th:cellpadding="15" th:align="center">
+
     <thead>
     <tr>
         <th scope="col"> #</th>
         <th scope="col" th:text="asdasdasdsad"></th>
         <th scope="col" th:text="asdasdasdsad"></th>
         <th scope="col" th:text="asdasdasdsad"></th>
+
     </tr>
     </thead>
 </table>
-<br>
-<nav>
-    <div th:align="center">
-        <a th:href="@{/}">
-            <button type="button" th:text="#{all-cars.return}"></button>
-        </a>
-    </div>
-</nav>
 </body>
 </html>
