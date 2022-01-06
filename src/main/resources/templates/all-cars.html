@@ -26,8 +26,8 @@
     </tr>
     </thead>
     <tbody>
-<!--        <tr th:each="">-->
-<!--            <td th:text="${cars}"-->
+        <tr th:each="car:${allCarsTH}">
+            <td th:text="${car.getPlateNumber()}"></td>
 
 
     </tr>

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CarsRepository extends Car {
+public class CarsRepository {
 
     private List<Car> cars;
 
@@ -25,5 +25,9 @@ public class CarsRepository extends Car {
         cars.add(new Car("GWE19917", "Audi A3", "Czerwony", 2013, LocalDate.now().minusDays(1), false));
         cars.add(new Car("GA12123", "Seat Toledo", "Srebrny", 2008, LocalDate.now().minusDays(2), false));
         return cars;
+    }
+
+    public void addCar(String plate, String name, String color, int year, LocalDate date, Boolean repaired){
+        cars.add(new Car(plate, name, color,year,date,repaired));
     }
 }

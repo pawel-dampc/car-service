@@ -15,6 +15,6 @@ public class AllCarsService {
 
     public List<Car> findAll() {
         return carsRepository.getCars();
-
     }
+
 }
