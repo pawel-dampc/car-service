@@ -2,7 +2,7 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Car Form</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
@@ -17,12 +17,21 @@
         <th scope="col"></th>
     </tr>
     </thead>
-    <tr>
+</table>
+<br><br>
+<!--    <tr>
 
     </tr>
     <tbody>
 
-    </tbody>
-</table>
+    </tbody>-->
+<!--</table>-->
+<form th:object="${singleTask}" th:action="@{/new-car}" method="post">
+    <label th:for="name" th:text="#{all-cars.name}"></label>
+    <input type="text" id="name" th:field="*{name}">
+    <br>
+    <button type="submit" th:text="ZAPISZ"></button>
+</form>
+
 </body>
 </html>

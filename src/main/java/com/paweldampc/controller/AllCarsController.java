@@ -14,9 +14,11 @@ public class AllCarsController {
 
     private AllCarsService allCarsService;
 
+
     @Autowired
     public AllCarsController(AllCarsService allCarsService) {
         this.allCarsService = allCarsService;
+
     }
 
     @GetMapping(value = "/all-cars")

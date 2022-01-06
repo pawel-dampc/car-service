@@ -28,6 +28,11 @@
     <tbody>
         <tr th:each="car:${allCarsTH}">
             <td th:text="${car.getPlateNumber()}"></td>
+            <td th:text="${car.getName()}"></td>
+            <td th:text="${car.getColor()}"></td>
+            <td th:text="${car.getYearOfProduce()}"></td>
+            <td th:text="${car.getCreated()}"></td>
+
 
 
     </tr>

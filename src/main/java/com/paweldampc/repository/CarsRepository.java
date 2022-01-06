@@ -20,7 +20,7 @@ public class CarsRepository {
         return cars;
     }
 
-    private static List<Car> importCars() {
+    private List<Car> importCars() {
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("GWE19917", "Audi A3", "Czerwony", 2013, LocalDate.now().minusDays(1), false));
         cars.add(new Car("GA12123", "Seat Toledo", "Srebrny", 2008, LocalDate.now().minusDays(2), false));

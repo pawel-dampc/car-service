@@ -1,29 +1,21 @@
 package com.paweldampc.service;
 
-import com.paweldampc.domain.Car;
+import com.paweldampc.dto.CarDto;
 import com.paweldampc.repository.CarsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 @Service
-public class AllCarsService {
-
+public class NewCarService {
 
     CarsRepository carsRepository = new CarsRepository();
 
     @Autowired
-    public AllCarsService(CarsRepository carsRepository) {
+    public NewCarService(CarsRepository carsRepository) {
         this.carsRepository = carsRepository;
     }
-
-    public List<Car> findAll() {
-        List<Car> allCars = new ArrayList<>();
-        allCars.addAll(carsRepository.getCars());
-        return allCars;
+    public void AddCar(CarDto carDto){
+        carsRepository.addCar(carDto.getPlateNumber(), carDto.getName(), carDto.getColor(), carDto.getYearOfProduce(),carDto.getCreated(),carDto.getRepaired());
     }
 
 }
