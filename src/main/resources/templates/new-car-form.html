@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Car Form</title>
@@ -17,21 +17,44 @@
         <th scope="col"></th>
     </tr>
     </thead>
+    <div>
+    <form th:object="${singleTask}" th:action="@{/new-car}" method="post">
+        <tr>
+            <td th:text="#{all-cars.plate}"></td>
+            <td>
+                <label th:for="plateNumber" ></label>
+                <input type="text" id="plateNumber" th:field="*{plateNumber}">
+            </td>
+        </tr>
+        <tr>
+            <td th:text="#{all-cars.name}"></td>
+            <td>
+                <label th:for="name" ></label>
+                <input type="text" id="name" th:field="*{name}">
+            </td>
+        </tr>
+        <tr>
+            <td th:text="#{all-cars.color}"></td>
+            <td>
+                <label th:for="color" ></label>
+                <input type="text" id="color" th:field="*{color}">
+            </td>
+        </tr>
+        <tr>
+            <td th:text="#{all-cars.year}"></td>
+            <td>
+                <label th:for="yearOfProduce" ></label>
+                <input type="number" id="yearOfProduce" th:field="*{yearOfProduce}">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" th:text="ZAPISZ"></button>
+            </td>
+        </tr>
+    </form>
+    </div>
 </table>
-<br><br>
-<!--    <tr>
-
-    </tr>
-    <tbody>
-
-    </tbody>-->
-<!--</table>-->
-<form th:object="${singleTask}" th:action="@{/new-car}" method="post">
-    <label th:for="name" th:text="#{all-cars.name}"></label>
-    <input type="text" id="name" th:field="*{name}">
-    <br>
-    <button type="submit" th:text="ZAPISZ"></button>
-</form>
-
 </body>
 </html>

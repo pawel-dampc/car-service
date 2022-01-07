@@ -8,7 +8,7 @@ public class Car {
     private String name;
     private String color;
     private int yearOfProduce;
-    private LocalDate created;
+    private LocalDate created = LocalDate.now();
     private Boolean repaired = false;
 
     public Car(String plateNumber, String name, String color, int yearOfProduce, LocalDate created, Boolean repaired) {

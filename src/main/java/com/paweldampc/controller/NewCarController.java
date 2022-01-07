@@ -33,6 +33,6 @@ public class NewCarController {
     @PostMapping(value = "/new-car")
     public String addCarPost(@ModelAttribute("addNewCarTh") CarDto carDto) {
         newCarService.AddCar(carDto);
-        return "new-car-form";
+        return "redirect:/all-cars";
     }
 }

@@ -8,12 +8,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class NewCarService {
 
-    CarsRepository carsRepository = new CarsRepository();
+   private static CarsRepository carsRepository = new CarsRepository();
 
     @Autowired
     public NewCarService(CarsRepository carsRepository) {
         this.carsRepository = carsRepository;
     }
+
     public void AddCar(CarDto carDto){
         carsRepository.addCar(carDto.getPlateNumber(), carDto.getName(), carDto.getColor(), carDto.getYearOfProduce(),carDto.getCreated(),carDto.getRepaired());
     }
