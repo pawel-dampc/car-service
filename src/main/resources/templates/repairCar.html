@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>repairCar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
-<form th:object="${repairCar}" th:action="@{/repairCarcar}" method="post">
-  <label th:for="name" th:text="#{repair-car.question}"></label>
-  <input type="search" id="name" th:field="*{name}">
+<form th:object="${searchPlate}" th:action="@{/repTrue}" method="post">
+  <label th:for="plateNumber" th:text="#{repair-car.question}"></label>
+  <input type="text" id="plateNumber" th:field="*{CASE_INSENSITIVE_ORDER}">
 </form>
 </body>
 </html>

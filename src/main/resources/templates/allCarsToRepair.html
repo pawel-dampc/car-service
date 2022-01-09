@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>allCarsToRepair</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+<nav>
+    <div>
+        <br><br>
+        <H2 th:align="center" th:text="#{index.nav.all}"></H2>
+        <br>
+    </div>
+</nav>
+<table class="table-responsive-xl table-striped table-bordered" th:cellpadding="15" th:align="center">
+    <thead>
+    <tr>
+
+        <th scope="col" th:text="#{all-cars.plate}"></th>
+        <th scope="col" th:text="#{all-cars.name}"></th>
+        <th scope="col" th:text="#{all-cars.color}"></th>
+        <th scope="col" th:text="#{all-cars.year}"></th>
+        <th scope="col" th:text="#{all-cars.date}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car:${allCarsToRepairTH}">
+        <td th:text="${car.getPlateNumber()}"></td>
+        <td th:text="${car.getName()}"></td>
+        <td th:text="${car.getColor()}"></td>
+        <td th:text="${car.getYearOfProduce()}"></td>
+        <td th:text="${car.getCreated()}"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<nav>
+    <div th:align="center">
+        <a th:href="@{/}">
+            <button type="button" th:text="#{all-cars.return}"></button>
+        </a>
+    </div>
+</nav>
+</body>
+</html>
