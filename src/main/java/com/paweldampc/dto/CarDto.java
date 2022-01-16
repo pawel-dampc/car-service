@@ -1,11 +1,14 @@
 package com.paweldampc.dto;
 
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 public class CarDto {
     private String plateNumber;
     private String name;
     private String color;
+    @Min(value = 1900 ,message = "Podaj prawidłową datę produkcji")
+    @Max(value = 2022 ,message = "Podaj prawidłową datę produkcji")
     private int yearOfProduce;
     private LocalDate createdDate;
     private Boolean repaired;

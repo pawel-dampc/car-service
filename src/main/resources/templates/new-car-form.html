@@ -43,8 +43,17 @@
         <tr>
             <td th:text="#{all-cars.year}"></td>
             <td>
+
                 <label th:for="yearOfProduce" ></label>
+                <div class="error-message main">
+                <div th:if="${#fields.hasErrors('yearOfProduce')}">
+                    <ul>
+                        <li th:each="error : ${#fields.errors('yearOfProduce')}" th:text="${error}"></li>
+                    </ul>
+                </div>
+                <br>
                 <input type="number" id="yearOfProduce" th:field="*{yearOfProduce}">
+                </div>
             </td>
         </tr>
 

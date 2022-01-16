@@ -44,15 +44,12 @@ public class CarsService {
         carsRepository.addCar(carDto.getPlateNumber(), carDto.getName(), carDto.getColor(), carDto.getYearOfProduce(), carDto.getCreatedDate(), carDto.getRepaired());
     }
 
-
     public List<Car> findByPlate(String plate) {
         carsRepository.getCars().stream()
                 .filter(car -> car.getPlateNumber().equals(plate.toUpperCase()))
                 .forEach(car -> {
                     car.setRepaired(true);
-                    car.setCreatedDate(LocalDate.now());
-                });
+                    car.setCreatedDate(LocalDate.now());});
         return null;
     }
-
 }
