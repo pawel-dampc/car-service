@@ -13,7 +13,7 @@ public class CarMapper {
         dto.setName(car.getName());
         dto.setColor(car.getColor());
         dto.setYearOfProduce(car.getYearOfProduce());
-        dto.setCreated(car.getCreated());
+        dto.setCreatedDate(car.getCreatedDate());
         dto.setRepaired(car.getRepaired());
         return dto;
     }

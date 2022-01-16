@@ -7,8 +7,8 @@ public class CarDto {
     private String name;
     private String color;
     private int yearOfProduce;
-    private LocalDate created = LocalDate.now() ;
-    private Boolean repaired = false;
+    private LocalDate createdDate;
+    private Boolean repaired;
 
     public String getPlateNumber() {
         return plateNumber;
@@ -42,16 +42,16 @@ public class CarDto {
         this.yearOfProduce = yearOfProduce;
     }
 
-    public LocalDate getCreated() {
-        return created;
+    public LocalDate getCreatedDate() {
+        return createdDate = LocalDate.now();
     }
 
-    public void setCreated(LocalDate created) {
-                this.created = created;
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
     }
 
     public Boolean getRepaired() {
-        return repaired;
+        return repaired = false;
     }
 
     public void setRepaired(Boolean repaired) {

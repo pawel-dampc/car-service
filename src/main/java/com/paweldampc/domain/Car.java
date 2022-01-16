@@ -8,10 +8,18 @@ public class Car {
     private String name;
     private String color;
     private int yearOfProduce;
-    private LocalDate createdDate = LocalDate.now();
-    private Boolean repaired = false;
+    private LocalDate createdDate;
+    private Boolean repaired;
 
-    public Car(String plateNumber, String name, String color, int yearOfProduce, LocalDate created, Boolean repaired) {
+    public Car(String plateNumber, String name, String color, int yearOfProduce) {
+        this.plateNumber = plateNumber;
+        this.name = name;
+        this.color = color;
+        this.yearOfProduce = yearOfProduce;
+
+    }
+
+    public Car(String plateNumber, String name, String color, int yearOfProduce, LocalDate createdDate, Boolean repaired) {
         this.plateNumber = plateNumber;
         this.name = name;
         this.color = color;
@@ -55,11 +63,11 @@ public class Car {
         this.yearOfProduce = yearOfProduce;
     }
 
-    public LocalDate getCreated() {
+    public LocalDate getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
     }
 

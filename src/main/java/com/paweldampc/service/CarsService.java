@@ -7,6 +7,7 @@ import com.paweldampc.repository.CarsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,7 +27,7 @@ public class CarsService {
     public List<Car> findAllToRepair() {
         List<Car> allCarsToRepair = carsRepository.getCars().stream()
                 .filter(car -> car.getRepaired().equals(false))
-                .sorted(Comparator.comparing(Car::getCreated))
+                .sorted(Comparator.comparing(Car::getCreatedDate))
                 .collect(Collectors.toList());
         return allCarsToRepair;
     }
@@ -34,30 +35,24 @@ public class CarsService {
     public List<Car> findAllRepaired() {
         List<Car> allCarsRepaired = carsRepository.getCars().stream()
                 .filter(car -> car.getRepaired().equals(true))
-                .sorted(Comparator.comparing(Car::getCreated))
+                .sorted(Comparator.comparing(Car::getCreatedDate))
                 .collect(Collectors.toList());
         return allCarsRepaired;
     }
 
     public void AddCar(CarDto carDto) {
-        carsRepository.addCar(carDto.getPlateNumber(), carDto.getName(), carDto.getColor(), carDto.getYearOfProduce(), carDto.getCreated(), carDto.getRepaired());
+        carsRepository.addCar(carDto.getPlateNumber(), carDto.getName(), carDto.getColor(), carDto.getYearOfProduce(), carDto.getCreatedDate(), carDto.getRepaired());
     }
 
 
-    /*    public
-        public CarDto find (String plate){
-            Car car = carsRepository.;
-            return carMapper.toDTO(car);*/
-//    }
-    public List<Car> findByPlate (String plate) {
-       carsRepository.getCars().stream()
-               .filter(car -> car.getPlateNumber().equals(plate.toUpperCase()))
-               .forEach(car -> car.setRepaired(true));
+    public List<Car> findByPlate(String plate) {
+        carsRepository.getCars().stream()
+                .filter(car -> car.getPlateNumber().equals(plate.toUpperCase()))
+                .forEach(car -> {
+                    car.setRepaired(true);
+                    car.setCreatedDate(LocalDate.now());
+                });
         return null;
     }
 
-//    public void findByNumberPlate(String plateNumber){
-//        carsRepository.getCars().stream().filter(car -> car.getPlateNumber().toUpperCase().contains(plateNumber.toUpperCase())).collect(Collectors.toList());
-//
-//    }
 }
