@@ -7,6 +7,7 @@ import com.paweldampc.repository.CarsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,12 +24,18 @@ public class CarsService {
     }
 
     public List<Car> findAllToRepair() {
-        List<Car> allCarsToRepair = carsRepository.getCars().stream().filter(car -> car.getRepaired().equals(false)).collect(Collectors.toList());
+        List<Car> allCarsToRepair = carsRepository.getCars().stream()
+                .filter(car -> car.getRepaired().equals(false))
+                .sorted(Comparator.comparing(Car::getCreated))
+                .collect(Collectors.toList());
         return allCarsToRepair;
     }
 
     public List<Car> findAllRepaired() {
-        List<Car> allCarsRepaired = carsRepository.getCars().stream().filter(car -> car.getRepaired().equals(true)).collect(Collectors.toList());
+        List<Car> allCarsRepaired = carsRepository.getCars().stream()
+                .filter(car -> car.getRepaired().equals(true))
+                .sorted(Comparator.comparing(Car::getCreated))
+                .collect(Collectors.toList());
         return allCarsRepaired;
     }
 
@@ -42,8 +49,11 @@ public class CarsService {
             Car car = carsRepository.;
             return carMapper.toDTO(car);*/
 //    }
-    public void findByPlate(String plate) {
-        carsRepository.getCars().stream().filter(car -> car.getPlateNumber().equals(plate.toUpperCase())).forEach(car -> car.setRepaired(true));
+    public List<Car> findByPlate (String plate) {
+       carsRepository.getCars().stream()
+               .filter(car -> car.getPlateNumber().equals(plate.toUpperCase()))
+               .forEach(car -> car.setRepaired(true));
+        return null;
     }
 
 //    public void findByNumberPlate(String plateNumber){

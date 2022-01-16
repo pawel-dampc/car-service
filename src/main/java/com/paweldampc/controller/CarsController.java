@@ -36,6 +36,13 @@ public class CarsController {
         return "allCarsToRepair";
     }
 
+    @GetMapping("/allCarsToRepair/{plate}")
+    public String getByPlateNumber(@PathVariable String plate, Model model) {
+        model.addAttribute("findPlate", carsService.findByPlate(plate));
+                return "redirect:/allCarsToRepair";
+
+    }
+
     @GetMapping(value = "/allCarsRepaired")
     public String getCarsRepaired(Model model) {
         List<Car> cars = carsService.findAllRepaired();
@@ -56,15 +63,14 @@ public class CarsController {
     }
 
     @GetMapping(value = "/findPlate")
-    public String findByPlate(Model model){
-        model.addAttribute("searchPlate");
-
+    public String findByPlate(Model model) {
+        model.addAttribute("searchPlate", new CarDto());
         return "repairCar";
     }
 
-    @PostMapping(value="/repTrue")
-    public String changeBoolean(@ModelAttribute(value = "plate") String plate){
-        carsService.findByPlate(plate);
+    @PostMapping(value = "/repTrue")
+    public String changeBoolean(@ModelAttribute("searchPlate") CarDto carDto) {
+        carsService.findByPlate(carDto.getPlateNumber());
         return "redirect:/allCarsRepaired";
     }
 

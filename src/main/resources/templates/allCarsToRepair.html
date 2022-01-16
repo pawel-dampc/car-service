@@ -32,6 +32,9 @@
         <td th:text="${car.getColor()}"></td>
         <td th:text="${car.getYearOfProduce()}"></td>
         <td th:text="${car.getCreated()}"></td>
+        <td>
+            <a th:href="@{/allCarsToRepair/{plate}(plate=${car.getPlateNumber()})}" th:text="#{repair}"/>
+        </td>
     </tr>
     </tbody>
 </table>
