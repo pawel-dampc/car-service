@@ -8,9 +8,11 @@
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
+<br><br>
 <form th:object="${searchPlate}" th:action="@{/repTrue}" method="post">
   <label th:for="plateNumber" th:text="#{repair-car.question}"></label>
-  <input type="text" id="plateNumber" th:field="*{CASE_INSENSITIVE_ORDER}">
+  <input type="text" id="plateNumber" th:field="*{plateNumber}">
+    <button type="submit" th:text="#{repair-submit}"></button>
 </form>
 </body>
 </html>
